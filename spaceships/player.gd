@@ -16,3 +16,7 @@ func _physics_process(delta):
 		position.y -= SPEED * delta
 	if Input.is_action_pressed("down"):
 		position.y += SPEED * delta
+	if global_position.x >= 853/2 - 16 :
+		position.x -= SPEED * delta
+	if global_position.x <= -853/2 + 16 :
+		position.x += SPEED * delta
