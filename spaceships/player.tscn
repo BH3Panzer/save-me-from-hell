@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwqmy1bt62061"]
+[gd_scene load_steps=6 format=3 uid="uid://cusndprtcdqtn"]
 
 [ext_resource type="Script" path="res://spaceships/player.gd" id="1_ekqch"]
 [ext_resource type="Texture2D" uid="uid://bb1u2jaw7n4jw" path="res://art/base_spaceship.png" id="1_jhc3e"]
@@ -35,6 +35,7 @@ script = ExtResource("1_ekqch")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_jhc3e")
 vframes = 7
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bau04")

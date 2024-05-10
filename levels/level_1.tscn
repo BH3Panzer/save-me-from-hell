@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c0n8hh6j4f415" path="res://art/background_base.png" id="1_m7k27"]
 [ext_resource type="Texture2D" uid="uid://cqr6slxov0uwf" path="res://art/background_big_stars.png" id="2_igf6n"]
-[ext_resource type="PackedScene" uid="uid://cwqmy1bt62061" path="res://player.tscn" id="2_k3lb5"]
+[ext_resource type="PackedScene" uid="uid://cusndprtcdqtn" path="res://spaceships/player.tscn" id="2_k3lb5"]
 [ext_resource type="Texture2D" uid="uid://bp61lw2yik2rt" path="res://art/background_little_stars.png" id="3_0mtd1"]
 [ext_resource type="Script" path="res://levels/level1/camera2d.gd" id="3_gbbqw"]
 
