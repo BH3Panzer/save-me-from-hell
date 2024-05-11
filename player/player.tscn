@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cusndprtcdqtn"]
+[gd_scene load_steps=7 format=3 uid="uid://cusndprtcdqtn"]
 
-[ext_resource type="Script" path="res://spaceships/player.gd" id="1_ekqch"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_ekqch"]
 [ext_resource type="Texture2D" uid="uid://bb1u2jaw7n4jw" path="res://art/base_spaceship.png" id="1_jhc3e"]
+[ext_resource type="PackedScene" uid="uid://bi011m8gyxxjq" path="res://player/basic_bullet.tscn" id="2_soo3b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bau04"]
 size = Vector2(10, 12)
@@ -28,10 +29,11 @@ _data = {
 "idle": SubResource("Animation_bartl")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(4, 4)
 collision_mask = 6
 script = ExtResource("1_ekqch")
+Bullet = ExtResource("2_soo3b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_jhc3e")
@@ -45,3 +47,12 @@ shape = SubResource("RectangleShape2D_bau04")
 libraries = {
 "": SubResource("AnimationLibrary_p88at")
 }
+
+[node name="FrontCanon" type="Marker2D" parent="."]
+position = Vector2(0, -7.25)
+rotation = 4.71239
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
