@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjmlp5l27lr5j"]
+[gd_scene load_steps=8 format=3 uid="uid://cjmlp5l27lr5j"]
 
 [ext_resource type="Texture2D" uid="uid://c0n8hh6j4f415" path="res://art/background_base.png" id="1_m7k27"]
 [ext_resource type="Texture2D" uid="uid://cqr6slxov0uwf" path="res://art/background_big_stars.png" id="2_igf6n"]
 [ext_resource type="Texture2D" uid="uid://bp61lw2yik2rt" path="res://art/background_little_stars.png" id="3_0mtd1"]
 [ext_resource type="Script" path="res://levels/level1/camera2d.gd" id="3_gbbqw"]
 [ext_resource type="PackedScene" uid="uid://cusndprtcdqtn" path="res://player/player.tscn" id="5_6o6hp"]
+[ext_resource type="PackedScene" uid="uid://2cx61v8qx37x" path="res://objects/speed_bullet_power_up.tscn" id="6_twyol"]
+[ext_resource type="PackedScene" uid="uid://c5ei4t3sugji8" path="res://objects/speed_bullet_power_down.tscn" id="7_nhqcv"]
 
 [node name="Level1" type="Node2D"]
 
@@ -42,3 +44,11 @@ script = ExtResource("3_gbbqw")
 
 [node name="Player" parent="." instance=ExtResource("5_6o6hp")]
 position = Vector2(0, 162)
+
+[node name="SpeedBulletPowerUp" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_twyol")]
+position = Vector2(-211, -384)
+player = NodePath("../Player")
+
+[node name="SpeedBulletPowerDown" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_nhqcv")]
+position = Vector2(91, -595)
+player = NodePath("../Player")

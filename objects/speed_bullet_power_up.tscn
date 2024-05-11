@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://2cx61v8qx37x"]
+
+[ext_resource type="Texture2D" uid="uid://bh82fyng4mpfi" path="res://art/powerup_speedbullet.png" id="1_g4hkd"]
+[ext_resource type="Script" path="res://objects/speed_bullet_power_up.gd" id="1_hgfc6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnkms"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_gnw3y"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wyle5"]
+_data = {
+"idle": SubResource("Animation_gnw3y")
+}
+
+[node name="SpeedBulletPowerUp" type="Area2D"]
+scale = Vector2(2, 2)
+collision_layer = 4
+script = ExtResource("1_hgfc6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_g4hkd")
+vframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fnkms")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wyle5")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

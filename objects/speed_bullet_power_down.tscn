@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5ei4t3sugji8"]
+
+[ext_resource type="Script" path="res://objects/speed_bullet_power_down.gd" id="1_kk4bp"]
+[ext_resource type="Texture2D" uid="uid://832h6a8bl8k1" path="res://art/powerdown_speedbullet.png" id="1_pxnh4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06621"]
+size = Vector2(16, 16)
+
+[node name="SpeedBulletPowerDown" type="Area2D"]
+scale = Vector2(2, 2)
+collision_layer = 4
+script = ExtResource("1_kk4bp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pxnh4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_06621")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
