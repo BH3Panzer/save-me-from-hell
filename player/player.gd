@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+var speed = 300.0
 var forward_speed = 100
 @export var Bullet : PackedScene
 @onready var timer = $Timer
@@ -13,18 +13,18 @@ func _ready():
 func _physics_process(delta):
 	position.y -= forward_speed * delta
 	if Input.is_action_pressed("right"):
-		position.x += SPEED * delta
+		position.x += speed * delta
 	if Input.is_action_pressed("left"):
-		position.x -= SPEED * delta
+		position.x -= speed * delta
 	if Input.is_action_pressed("up"):
-		position.y -= SPEED * delta
+		position.y -= speed * delta
 	if Input.is_action_pressed("down"):
-		position.y += SPEED * delta
+		position.y += speed * delta
 
 	if global_position.x >= 853/2 - 16 :
-		position.x -= SPEED * delta
+		position.x -= speed * delta
 	if global_position.x <= -853/2 + 16 :
-		position.x += SPEED * delta
+		position.x += speed * delta
 
 func _input(event):
 	if event.is_action_pressed("shoot") && timer.is_stopped():
