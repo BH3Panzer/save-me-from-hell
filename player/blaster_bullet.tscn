@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cql1k62kibmcm"]
+
+[ext_resource type="Script" path="res://player/blaster_bullet.gd" id="1_04y3t"]
+[ext_resource type="Texture2D" uid="uid://c3dm64a7d7oa5" path="res://art/blast_lazer.png" id="1_vahs8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ol2r"]
+size = Vector2(16, 8)
+
+[node name="BlasterBullet" type="Area2D"]
+script = ExtResource("1_04y3t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_vahs8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4ol2r")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(4.17233e-07, 2.38419e-07)
+scale = Vector2(0.8, 0.4)
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

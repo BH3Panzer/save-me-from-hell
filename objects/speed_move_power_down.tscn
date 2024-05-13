@@ -8,6 +8,7 @@ size = Vector2(16, 16)
 
 [node name="SpeedMovePowerDown" type="Area2D"]
 scale = Vector2(2, 2)
+collision_layer = 4
 script = ExtResource("1_rp1kj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
