@@ -38,7 +38,6 @@ Bullet = ExtResource("2_soo3b")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_jhc3e")
 vframes = 7
-frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bau04")
