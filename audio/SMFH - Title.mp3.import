@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dy4bofe4wl1ud"
+path="res://.godot/imported/SMFH - Title.mp3-3d4584da89e8de734ec44b580a8b285b.mp3str"
+
+[deps]
+
+source_file="res://audio/SMFH - Title.mp3"
+dest_files=["res://.godot/imported/SMFH - Title.mp3-3d4584da89e8de734ec44b580a8b285b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
