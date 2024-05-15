@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+const speed = 300.0
 var forward_speed = 50
 @export var Bullet : PackedScene
 @export var Blaster : PackedScene
