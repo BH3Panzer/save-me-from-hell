@@ -21,6 +21,7 @@ shape = SubResource("RectangleShape2D_e0443")
 position = Vector2(7.75, 0)
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="BackCanon" type="Marker2D" parent="."]
 position = Vector2(-7.75, 0)

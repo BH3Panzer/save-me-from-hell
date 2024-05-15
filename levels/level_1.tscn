@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cjmlp5l27lr5j"]
+[gd_scene load_steps=8 format=3 uid="uid://cjmlp5l27lr5j"]
 
 [ext_resource type="Texture2D" uid="uid://c0n8hh6j4f415" path="res://art/background_base.png" id="1_m7k27"]
 [ext_resource type="Texture2D" uid="uid://cqr6slxov0uwf" path="res://art/background_big_stars.png" id="2_igf6n"]
@@ -7,11 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cusndprtcdqtn" path="res://player/player.tscn" id="5_6o6hp"]
 [ext_resource type="PackedScene" uid="uid://2cx61v8qx37x" path="res://objects/speed_bullet_power_up.tscn" id="6_twyol"]
 [ext_resource type="PackedScene" uid="uid://c5ei4t3sugji8" path="res://objects/speed_bullet_power_down.tscn" id="7_nhqcv"]
-[ext_resource type="PackedScene" uid="uid://sx84ioc6g3b5" path="res://ennemi/simple_turret.tscn" id="8_q51lj"]
-[ext_resource type="PackedScene" uid="uid://cxnd36ihxx66i" path="res://ennemi/double_turret.tscn" id="9_tmijb"]
-[ext_resource type="PackedScene" uid="uid://wmwy6vlkp3wa" path="res://ennemi/ennemi_bullet.tscn" id="10_a3hli"]
-[ext_resource type="PackedScene" uid="uid://d0d836sa7el1g" path="res://ennemi/triple_turret.tscn" id="11_ul18l"]
-[ext_resource type="PackedScene" uid="uid://m8johnn4celt" path="res://ennemi/quadruple_turret.tscn" id="12_11k01"]
 
 [node name="Level1" type="Node2D"]
 
@@ -57,16 +52,3 @@ player = NodePath("../Player")
 [node name="SpeedBulletPowerDown" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_nhqcv")]
 position = Vector2(91, -595)
 player = NodePath("../Player")
-
-[node name="SimpleTurret" parent="." instance=ExtResource("8_q51lj")]
-position = Vector2(-154, -698)
-
-[node name="DoubleTurret" parent="." instance=ExtResource("9_tmijb")]
-position = Vector2(129, -919)
-Bullet = ExtResource("10_a3hli")
-
-[node name="TripleTurret" parent="." instance=ExtResource("11_ul18l")]
-position = Vector2(-317, -1180)
-
-[node name="QuadrupleTurret" parent="." instance=ExtResource("12_11k01")]
-position = Vector2(224, -1480)

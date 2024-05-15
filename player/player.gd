@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-var forward_speed = 100
+var forward_speed = 50
 @export var Bullet : PackedScene
 @onready var timer = $Timer
 var is_shooting := false

@@ -1,11 +1,16 @@
 extends CharacterBody2D
 
-
+var rotationSpeed = 1
 @export var Bullet : PackedScene
 @onready var timer = $Timer
+var rotationEnable = true
 
 func _ready():
 	timer.start()
+
+func _physics_process(delta):
+	if rotationEnable:
+		rotation += rotationSpeed * delta
 
 func _on_timer_timeout():
 	shoot()
