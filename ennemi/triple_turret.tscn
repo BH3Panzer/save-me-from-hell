@@ -25,6 +25,7 @@ position = Vector2(0, 7.75)
 rotation = 1.5708
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="RightCanon" type="Marker2D" parent="."]
 position = Vector2(-7.75, 0)
