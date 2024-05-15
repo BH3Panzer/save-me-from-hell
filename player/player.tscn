@@ -1,42 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cusndprtcdqtn"]
+[gd_scene load_steps=5 format=3 uid="uid://cusndprtcdqtn"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_ekqch"]
 [ext_resource type="PackedScene" uid="uid://bi011m8gyxxjq" path="res://player/basic_bullet.tscn" id="2_soo3b"]
-[ext_resource type="Texture2D" uid="uid://c6s8tax5kd753" path="res://art/vaisseau-animation.png" id="3_12uw4"]
+[ext_resource type="Texture2D" uid="uid://vcf22s7l88ls" path="res://art/vaisseau.png" id="3_12uw4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bau04"]
 size = Vector2(27, 32)
-
-[sub_resource type="Animation" id="Animation_bartl"]
-resource_name = "idle"
-<<<<<<< HEAD
-length = 2.4
-=======
-length = 0.9
->>>>>>> dev-fraii
-loop_mode = 1
-step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-<<<<<<< HEAD
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2),
-=======
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75),
->>>>>>> dev-fraii
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_p88at"]
-_data = {
-"idle": SubResource("Animation_bartl")
-}
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(1.5, 1.5)
@@ -45,35 +14,22 @@ script = ExtResource("1_ekqch")
 Bullet = ExtResource("2_soo3b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-<<<<<<< HEAD
-texture = ExtResource("1_jhc3e")
-vframes = 7
-frame = 1
-=======
 texture = ExtResource("3_12uw4")
-vframes = 6
-frame = 5
->>>>>>> dev-fraii
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -3)
 shape = SubResource("RectangleShape2D_bau04")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_p88at")
-}
 
 [node name="FrontCanon" type="Marker2D" parent="."]
 position = Vector2(0, -20)
 rotation = 4.71239
 
 [node name="LeftCanon" type="Marker2D" parent="."]
-position = Vector2(-6.75, 0)
+position = Vector2(-11.3333, -1.51582e-13)
 rotation = 4.71239
 
 [node name="RightCanon" type="Marker2D" parent="."]
-position = Vector2(6.75, 0)
+position = Vector2(12.6667, 1.51582e-13)
 rotation = 4.71239
 
 [node name="Timer" type="Timer" parent="."]

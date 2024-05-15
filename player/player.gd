@@ -11,7 +11,6 @@ var is_shooting := false
 var is_shooting_blaster := false
 var have_blaster := false
 func _ready():
-	$AnimationPlayer.play("idle")
 	is_shooting = false
 	is_shooting_blaster = false
 
