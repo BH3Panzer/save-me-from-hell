@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://m8johnn4celt"]
+
+[ext_resource type="Script" path="res://ennemi/quadruple_turret.gd" id="1_2rgeh"]
+[ext_resource type="Texture2D" uid="uid://bn3x27laghyjt" path="res://art/quadruple_turret_ennemie.png" id="2_eikn8"]
+[ext_resource type="PackedScene" uid="uid://wmwy6vlkp3wa" path="res://ennemi/ennemi_bullet.tscn" id="2_wic6h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0443"]
+size = Vector2(14, 14)
+
+[node name="QuadrupleTurret" type="CharacterBody2D" groups=["Enemies"]]
+scale = Vector2(4, 4)
+collision_layer = 2
+script = ExtResource("1_2rgeh")
+Bullet = ExtResource("2_wic6h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_eikn8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e0443")
+
+[node name="FrontCanon" type="Marker2D" parent="."]
+position = Vector2(0, 7.75)
+rotation = 1.5708
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="RightCanon" type="Marker2D" parent="."]
+position = Vector2(-7.75, 0)
+rotation = 3.14159
+
+[node name="LeftCanon" type="Marker2D" parent="."]
+position = Vector2(8, 0)
+
+[node name="BackCanon" type="Marker2D" parent="."]
+position = Vector2(0, -8.25)
+rotation = 4.71239
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
