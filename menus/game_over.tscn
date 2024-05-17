@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfm66d5drwiy0"]
+
+[ext_resource type="Script" path="res://menus/game_over.gd" id="1_hvrpc"]
+[ext_resource type="Texture2D" uid="uid://ctxsdjjxwwuqs" path="res://art/game_over_screen.png" id="1_sueew"]
+[ext_resource type="Theme" uid="uid://dti0a4yqi3s7g" path="res://menus/theme.tres" id="2_ns74r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fttdd"]
+font_size = 82
+font_color = Color(0, 0, 0, 1)
+outline_size = 20
+outline_color = Color(0.769432, 0.769432, 0.769432, 1)
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hvrpc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(430, 243)
+scale = Vector2(5.5, 5.5)
+texture = ExtResource("1_sueew")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 33.0
+offset_right = 580.0
+offset_bottom = 146.0
+text = "Retry ?"
+label_settings = SubResource("LabelSettings_fttdd")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 284.0
+offset_right = 604.0
+offset_bottom = 341.0
+theme = ExtResource("2_ns74r")
+text = "Yes"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

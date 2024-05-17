@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cusndprtcdqtn"]
+[gd_scene load_steps=7 format=3 uid="uid://cusndprtcdqtn"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_ekqch"]
 [ext_resource type="PackedScene" uid="uid://bi011m8gyxxjq" path="res://player/basic_bullet.tscn" id="2_soo3b"]
 [ext_resource type="Texture2D" uid="uid://vcf22s7l88ls" path="res://art/vaisseau.png" id="3_12uw4"]
+[ext_resource type="AudioStream" uid="uid://ca3bdtadb32v2" path="res://audio/bullet_shoot.mp3" id="4_t7hpy"]
+[ext_resource type="AudioStream" uid="uid://dwi3g3f0ary8q" path="res://audio/blaster_shoot.mp3" id="5_0qqhi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bau04"]
-size = Vector2(27, 32)
+size = Vector2(26.3333, 32.6667)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(1.5, 1.5)
@@ -17,7 +19,7 @@ Bullet = ExtResource("2_soo3b")
 texture = ExtResource("3_12uw4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -3)
+position = Vector2(0.166667, -0.333334)
 shape = SubResource("RectangleShape2D_bau04")
 
 [node name="FrontCanon" type="Marker2D" parent="."]
@@ -25,11 +27,11 @@ position = Vector2(0, -20)
 rotation = 4.71239
 
 [node name="LeftCanon" type="Marker2D" parent="."]
-position = Vector2(-11.3333, -1.51582e-13)
+position = Vector2(-11.3333, -6)
 rotation = 4.71239
 
 [node name="RightCanon" type="Marker2D" parent="."]
-position = Vector2(12.6667, 1.51582e-13)
+position = Vector2(11.3333, -6)
 rotation = 4.71239
 
 [node name="Timer" type="Timer" parent="."]
@@ -37,6 +39,15 @@ wait_time = 0.15
 
 [node name="TimerBlaster" type="Timer" parent="."]
 wait_time = 0.02
+
+[node name="shootbulletaudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_t7hpy")
+volume_db = -6.0
+
+[node name="shootblasteraudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_0qqhi")
+volume_db = -6.0
+pitch_scale = 3.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerBlaster" to="." method="_on_timer_blaster_timeout"]
