@@ -6,6 +6,7 @@ var forward_speed = 50
 @export var Blaster : PackedScene
 @onready var timer = $Timer
 @onready var timer_blaster = $TimerBlaster
+var life = 3
 var is_shooting := false
 var is_shooting_blaster := false
 var have_blaster := false
@@ -70,5 +71,7 @@ func shoot():
 	b.scale.x = 1
 	b.scale.y = 1
 
-
-
+func damage(a):
+	life -= a
+	if life <= 0:
+		queue_free()
