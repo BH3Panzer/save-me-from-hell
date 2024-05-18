@@ -1,6 +1,11 @@
 extends CharacterBody2D
 
 var rotationSpeed = 1
+@export var SpeedBulletPowerUp : PackedScene
+@export var SpeedBulletPowerDown : PackedScene
+@export var SpeedMovePowerUp : PackedScene
+@export var SpeedMovePowerDown : PackedScene
+@export var BlasterPowerUp : PackedScene
 @export var Bullet : PackedScene
 @onready var timer = $Timer
 var rotationEnable = true
@@ -44,4 +49,25 @@ func shoot():
 func damage(a):
 	life -= a
 	if life <= 0:
-		queue_free()
+		died()
+
+func died():
+	var loot = randi() % 100
+	var bonus = null
+	if loot >= 95 and loot <= 97:
+		bonus = BlasterPowerUp.instantiate()
+	elif loot >= 85 and loot < 95:
+		bonus = SpeedBulletPowerUp.instantiate()
+	elif loot >= 75 and loot < 85:
+		bonus = SpeedBulletPowerDown.instantiate()
+	elif loot >= 68 and loot < 75:
+		bonus = SpeedMovePowerUp.instantiate()
+	elif loot >= 61 and loot < 68:
+		bonus = SpeedMovePowerDown.instantiate()
+	if bonus != null:
+		get_tree().root.add_child(bonus)
+		bonus.position.x = position.x
+		bonus.position.y = position.y
+		bonus.scale.x = 1
+		bonus.scale.y = 1
+	queue_free()

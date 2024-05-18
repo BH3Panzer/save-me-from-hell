@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxnd36ihxx66i"]
+[gd_scene load_steps=10 format=3 uid="uid://cxnd36ihxx66i"]
 
 [ext_resource type="Script" path="res://ennemi/double_turret.gd" id="1_8qjdd"]
+[ext_resource type="PackedScene" uid="uid://2cx61v8qx37x" path="res://objects/speed_bullet_power_up.tscn" id="2_mgtaq"]
 [ext_resource type="PackedScene" uid="uid://wmwy6vlkp3wa" path="res://ennemi/ennemi_bullet.tscn" id="2_ql5wb"]
 [ext_resource type="Texture2D" uid="uid://dpxf5wvvf7t1b" path="res://art/double_turret_ennemie.png" id="3_e07t3"]
+[ext_resource type="PackedScene" uid="uid://c5ei4t3sugji8" path="res://objects/speed_bullet_power_down.tscn" id="3_vgclk"]
+[ext_resource type="PackedScene" uid="uid://btk7npju53s4g" path="res://objects/speed_move_power_up.tscn" id="4_53hbb"]
+[ext_resource type="PackedScene" uid="uid://dndpbakq4htfm" path="res://objects/speed_move_power_down.tscn" id="5_ugtwf"]
+[ext_resource type="PackedScene" uid="uid://dib7iw0po7l44" path="res://objects/blaster_power_up.tscn" id="6_j106m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0443"]
 size = Vector2(14, 10)
@@ -11,6 +16,11 @@ size = Vector2(14, 10)
 scale = Vector2(4, 4)
 collision_layer = 2
 script = ExtResource("1_8qjdd")
+SpeedBulletPowerUp = ExtResource("2_mgtaq")
+SpeedBulletPowerDown = ExtResource("3_vgclk")
+SpeedMovePowerUp = ExtResource("4_53hbb")
+SpeedMovePowerDown = ExtResource("5_ugtwf")
+BlasterPowerUp = ExtResource("6_j106m")
 Bullet = ExtResource("2_ql5wb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

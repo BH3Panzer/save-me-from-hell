@@ -6,7 +6,7 @@ var forward_speed = 50
 @export var Blaster : PackedScene
 @onready var timer = $Timer
 @onready var timer_blaster = $TimerBlaster
-var life = 3
+var life = 3000
 var is_shooting := false
 var is_shooting_blaster := false
 var have_blaster := false
