@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://m8johnn4celt"]
+[gd_scene load_steps=10 format=3 uid="uid://m8johnn4celt"]
 
 [ext_resource type="Script" path="res://ennemi/quadruple_turret.gd" id="1_2rgeh"]
 [ext_resource type="Texture2D" uid="uid://bn3x27laghyjt" path="res://art/quadruple_turret_ennemie.png" id="2_eikn8"]
+[ext_resource type="PackedScene" uid="uid://2cx61v8qx37x" path="res://objects/speed_bullet_power_up.tscn" id="2_n7021"]
 [ext_resource type="PackedScene" uid="uid://wmwy6vlkp3wa" path="res://ennemi/ennemi_bullet.tscn" id="2_wic6h"]
+[ext_resource type="PackedScene" uid="uid://c5ei4t3sugji8" path="res://objects/speed_bullet_power_down.tscn" id="3_r0d48"]
+[ext_resource type="PackedScene" uid="uid://btk7npju53s4g" path="res://objects/speed_move_power_up.tscn" id="4_puoks"]
+[ext_resource type="PackedScene" uid="uid://dndpbakq4htfm" path="res://objects/speed_move_power_down.tscn" id="5_bemr1"]
+[ext_resource type="PackedScene" uid="uid://dib7iw0po7l44" path="res://objects/blaster_power_up.tscn" id="6_hyxfw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0443"]
 size = Vector2(14, 14)
@@ -11,6 +16,11 @@ size = Vector2(14, 14)
 scale = Vector2(4, 4)
 collision_layer = 2
 script = ExtResource("1_2rgeh")
+SpeedBulletPowerUp = ExtResource("2_n7021")
+SpeedBulletPowerDown = ExtResource("3_r0d48")
+SpeedMovePowerUp = ExtResource("4_puoks")
+SpeedMovePowerDown = ExtResource("5_bemr1")
+BlasterPowerUp = ExtResource("6_hyxfw")
 Bullet = ExtResource("2_wic6h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -36,5 +46,9 @@ position = Vector2(8, 0)
 [node name="BackCanon" type="Marker2D" parent="."]
 position = Vector2(0, -8.25)
 rotation = 4.71239
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(1.19209e-07, 1.19209e-07)
+scale = Vector2(0.7, 0.7)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

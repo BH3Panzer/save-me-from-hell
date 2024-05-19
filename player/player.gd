@@ -1,28 +1,33 @@
 extends CharacterBody2D
 
-const speed = 300.0
+var speed = 300.0
 var forward_speed = 50
 @export var Bullet : PackedScene
 @export var Blaster : PackedScene
 @onready var timer = $Timer
 @onready var timer_blaster = $TimerBlaster
+var life = 3
 var is_shooting := false
 var is_shooting_blaster := false
 var have_blaster := false
+var slowDown = false
 func _ready():
 	is_shooting = false
 	is_shooting_blaster = false
 
 func _physics_process(delta):
 	position.y -= forward_speed * delta
+	var tempSpeed = speed
+	if slowDown:
+		tempSpeed /= 2
 	if Input.is_action_pressed("right"):
-		position.x += speed * delta
+		position.x += tempSpeed * delta
 	if Input.is_action_pressed("left"):
-		position.x -= speed * delta
+		position.x -= tempSpeed * delta
 	if Input.is_action_pressed("up"):
-		position.y -= speed * delta
+		position.y -= tempSpeed * delta
 	if Input.is_action_pressed("down"):
-		position.y += speed * delta
+		position.y += tempSpeed * delta
 
 	if global_position.x >= 853/2 - 16 :
 		position.x -= speed * delta
@@ -43,6 +48,10 @@ func _input(event):
 		is_shooting_blaster = true
 		shoot_blaster()
 		timer_blaster.start()
+	if event.is_action_pressed("slowDown"):
+		slowDown = true
+	elif event.is_action_released("slowDown"):
+		slowDown = false
 
 func _on_timer_timeout():
 	shoot()
@@ -72,5 +81,7 @@ func shoot():
 	b.scale.x = 1
 	b.scale.y = 1
 
-
-
+func damage(a):
+	life -= a
+	if life <= 0:
+		queue_free()

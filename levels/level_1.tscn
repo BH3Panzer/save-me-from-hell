@@ -1,16 +1,27 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjmlp5l27lr5j"]
+
+[gd_scene load_steps=12 format=3 uid="uid://cjmlp5l27lr5j"]
+
 
 [ext_resource type="Texture2D" uid="uid://c0n8hh6j4f415" path="res://art/background_base.png" id="1_m7k27"]
+[ext_resource type="Script" path="res://levels/set_ennemis.gd" id="1_uvavh"]
 [ext_resource type="Texture2D" uid="uid://cqr6slxov0uwf" path="res://art/background_big_stars.png" id="2_igf6n"]
 [ext_resource type="Texture2D" uid="uid://bp61lw2yik2rt" path="res://art/background_little_stars.png" id="3_0mtd1"]
+[ext_resource type="PackedScene" uid="uid://cxnd36ihxx66i" path="res://ennemi/double_turret.tscn" id="3_a16gd"]
 [ext_resource type="Script" path="res://levels/level1/camera2d.gd" id="3_gbbqw"]
+[ext_resource type="PackedScene" uid="uid://d0d836sa7el1g" path="res://ennemi/triple_turret.tscn" id="4_kfwig"]
 [ext_resource type="PackedScene" uid="uid://cusndprtcdqtn" path="res://player/player.tscn" id="5_6o6hp"]
-[ext_resource type="PackedScene" uid="uid://cql1k62kibmcm" path="res://player/blaster_bullet.tscn" id="6_7xwk5"]
-[ext_resource type="PackedScene" uid="uid://2cx61v8qx37x" path="res://objects/speed_bullet_power_up.tscn" id="6_twyol"]
-[ext_resource type="PackedScene" uid="uid://c5ei4t3sugji8" path="res://objects/speed_bullet_power_down.tscn" id="7_nhqcv"]
-[ext_resource type="PackedScene" uid="uid://dib7iw0po7l44" path="res://objects/blaster_power_up.tscn" id="9_ysghg"]
+[ext_resource type="PackedScene" uid="uid://m8johnn4celt" path="res://ennemi/quadruple_turret.tscn" id="5_7y44f"]
+[ext_resource type="PackedScene" uid="uid://cslu0w4lvk6kw" path="res://ennemi/shotgun_turret.tscn" id="6_h1tqp"]
+[ext_resource type="PackedScene" uid="uid://sx84ioc6g3b5" path="res://ennemi/simple_turret.tscn" id="7_qt5ut"]
 
-[node name="Level1" type="Node2D"]
+
+[node name="Level1" type="Node2D" groups=["Level"]]
+script = ExtResource("1_uvavh")
+SimpleTurret = ExtResource("7_qt5ut")
+DoubleTurret = ExtResource("3_a16gd")
+TripleTurret = ExtResource("4_kfwig")
+QuadrupleTurret = ExtResource("5_7y44f")
+ShotgunTurret = ExtResource("6_h1tqp")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -46,16 +57,4 @@ script = ExtResource("3_gbbqw")
 
 [node name="Player" parent="." instance=ExtResource("5_6o6hp")]
 position = Vector2(0, 162)
-Blaster = ExtResource("6_7xwk5")
 
-[node name="SpeedBulletPowerUp" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_twyol")]
-position = Vector2(-211, -384)
-player = NodePath("../Player")
-
-[node name="SpeedBulletPowerDown" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_nhqcv")]
-position = Vector2(91, -595)
-player = NodePath("../Player")
-
-[node name="BlasterPowerUp" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_ysghg")]
-position = Vector2(-100, -856)
-player = NodePath("../Player")

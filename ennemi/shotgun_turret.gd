@@ -31,11 +31,41 @@ func other_ready(x, y, type, rotationValue = 0, roationDirection = null):
 		get_node("Timer").wait_time += 0.5
 
 func shoot():
-	var b = Bullet.instantiate()
-	get_tree().root.add_child(b)
-	b.transform = $FrontCanon.global_transform
-	b.scale.x = 1
-	b.scale.y = 1
+	var bFL = Bullet.instantiate()
+	var bSL = Bullet.instantiate()
+	var bL = Bullet.instantiate()
+	var bF = Bullet.instantiate()
+	var bR = Bullet.instantiate()
+	var bSR = Bullet.instantiate()
+	var bFR = Bullet.instantiate()
+	get_tree().root.add_child(bFL)
+	get_tree().root.add_child(bSL)
+	get_tree().root.add_child(bL)
+	get_tree().root.add_child(bF)
+	get_tree().root.add_child(bR)
+	get_tree().root.add_child(bSR)
+	get_tree().root.add_child(bFR)
+	bFL.transform = $FullLeftCanon.global_transform
+	bSL.transform = $SecondLeftCanon.global_transform
+	bL.transform = $LeftCanon.global_transform
+	bF.transform = $FrontCanon.global_transform
+	bR.transform = $RightCanon.global_transform
+	bSR.transform = $SecondRightCanon.global_transform
+	bFR.transform = $FullRightCanon.global_transform
+	bFL.scale.x = 1
+	bFL.scale.y = 1
+	bSL.scale.x = 1
+	bSL.scale.y = 1
+	bL.scale.x = 1
+	bL.scale.y = 1
+	bF.scale.x = 1
+	bF.scale.y = 1
+	bR.scale.x = 1
+	bR.scale.y = 1
+	bSR.scale.x = 1
+	bSR.scale.y = 1
+	bFR.scale.x = 1
+	bFR.scale.y = 1
 
 func damage(a):
 	life -= a

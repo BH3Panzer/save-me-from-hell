@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://cslu0w4lvk6kw"]
+
+[ext_resource type="Script" path="res://ennemi/shotgun_turret.gd" id="1_r1nfw"]
+[ext_resource type="PackedScene" uid="uid://2cx61v8qx37x" path="res://objects/speed_bullet_power_up.tscn" id="2_4slyn"]
+[ext_resource type="PackedScene" uid="uid://c5ei4t3sugji8" path="res://objects/speed_bullet_power_down.tscn" id="3_o0l2u"]
+[ext_resource type="PackedScene" uid="uid://btk7npju53s4g" path="res://objects/speed_move_power_up.tscn" id="4_nexds"]
+[ext_resource type="PackedScene" uid="uid://dndpbakq4htfm" path="res://objects/speed_move_power_down.tscn" id="5_003e2"]
+[ext_resource type="PackedScene" uid="uid://dib7iw0po7l44" path="res://objects/blaster_power_up.tscn" id="6_hwvvj"]
+[ext_resource type="PackedScene" uid="uid://wmwy6vlkp3wa" path="res://ennemi/ennemi_bullet.tscn" id="7_5whte"]
+[ext_resource type="Texture2D" uid="uid://bkik4i87r1huw" path="res://art/shotgun_turret_ennemie.png" id="8_th17f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0443"]
+size = Vector2(10, 12)
+
+[node name="ShotgunTurret" type="CharacterBody2D" groups=["Enemies"]]
+scale = Vector2(4, 4)
+collision_layer = 2
+script = ExtResource("1_r1nfw")
+SpeedBulletPowerUp = ExtResource("2_4slyn")
+SpeedBulletPowerDown = ExtResource("3_o0l2u")
+SpeedMovePowerUp = ExtResource("4_nexds")
+SpeedMovePowerDown = ExtResource("5_003e2")
+BlasterPowerUp = ExtResource("6_hwvvj")
+Bullet = ExtResource("7_5whte")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("8_th17f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_e0443")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(6.55651e-07, 1)
+scale = Vector2(0.5, 0.6)
+
+[node name="FullLeftCanon" type="Marker2D" parent="."]
+position = Vector2(5, 7.75)
+rotation = 0.785398
+scale = Vector2(1, 1)
+
+[node name="SecondLeftCanon" type="Marker2D" parent="."]
+position = Vector2(3.25, 7.75)
+rotation = 1.01229
+
+[node name="LeftCanon" type="Marker2D" parent="."]
+position = Vector2(1.5, 7.75)
+rotation = 1.3439
+
+[node name="FrontCanon" type="Marker2D" parent="."]
+position = Vector2(0, 7.75)
+rotation = 1.5708
+
+[node name="RightCanon" type="Marker2D" parent="."]
+position = Vector2(-1.5, 7.75)
+rotation = 1.79769
+
+[node name="SecondRightCanon" type="Marker2D" parent="."]
+position = Vector2(-3.25, 7.75)
+rotation = 2.1293
+
+[node name="FullRightCanon" type="Marker2D" parent="."]
+position = Vector2(-5, 7.75)
+rotation = 2.35619
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
