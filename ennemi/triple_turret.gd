@@ -8,25 +8,26 @@ var rotationSpeed = 1
 @export var BlasterPowerUp : PackedScene
 @export var Bullet : PackedScene
 @onready var timer = $Timer
-var rotationEnable = true
+var turretType = null
 var life = 50
 
 func _ready():
 	timer.start()
 
 func _physics_process(delta):
-	if rotationEnable:
+	if turretType == "rotating":
 		rotation += rotationSpeed * delta
 
 func _on_timer_timeout():
 	shoot()
 	timer.start()
 
-func other_ready(x, y, activeRotate):
+func other_ready(x, y, type, rotationValue = 0, roationDirection = null):
 	position.x = x
 	position.y = y
-	rotationEnable = activeRotate
-	if not rotationEnable:
+	turretType = type
+	rotation = rotationValue
+	if turretType != "rotating":
 		get_node("Timer").wait_time += 0.5
 
 func shoot():

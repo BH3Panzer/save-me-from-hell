@@ -37,4 +37,8 @@ rotation = 1.5708
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(2.38419e-07, 1)
+scale = Vector2(0.5, 0.6)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

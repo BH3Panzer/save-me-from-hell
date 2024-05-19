@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d0d836sa7el1g" path="res://ennemi/triple_turret.tscn" id="4_kfwig"]
 [ext_resource type="PackedScene" uid="uid://cusndprtcdqtn" path="res://player/player.tscn" id="5_6o6hp"]
 [ext_resource type="PackedScene" uid="uid://m8johnn4celt" path="res://ennemi/quadruple_turret.tscn" id="5_7y44f"]
-[ext_resource type="PackedScene" uid="uid://cql1k62kibmcm" path="res://player/blaster_bullet.tscn" id="6_7xwk5"]
+[ext_resource type="PackedScene" uid="uid://cslu0w4lvk6kw" path="res://ennemi/shotgun_turret.tscn" id="6_h1tqp"]
 [ext_resource type="PackedScene" uid="uid://sx84ioc6g3b5" path="res://ennemi/simple_turret.tscn" id="7_qt5ut"]
 
 [node name="Level1" type="Node2D" groups=["Level"]]
@@ -18,6 +18,7 @@ SimpleTurret = ExtResource("7_qt5ut")
 DoubleTurret = ExtResource("3_a16gd")
 TripleTurret = ExtResource("4_kfwig")
 QuadrupleTurret = ExtResource("5_7y44f")
+ShotgunTurret = ExtResource("6_h1tqp")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -53,4 +54,3 @@ script = ExtResource("3_gbbqw")
 
 [node name="Player" parent="." instance=ExtResource("5_6o6hp")]
 position = Vector2(0, 162)
-Blaster = ExtResource("6_7xwk5")

@@ -11,5 +11,5 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
-		player.speed += 100
+		body.speed += 100
 		queue_free()
