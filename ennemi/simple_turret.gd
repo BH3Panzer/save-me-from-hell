@@ -10,23 +10,25 @@ var rotationSpeed = 1
 @onready var timer = $Timer
 var turretType = null
 var life = 50
+var rDirection = null
 
 func _ready():
 	timer.start()
 
 func _physics_process(delta):
 	if turretType == "rotating":
-		rotation += rotationSpeed * delta
+		rotation += rotationSpeed * delta * rDirection
 
 func _on_timer_timeout():
 	shoot()
 	timer.start()
 
-func other_ready(x, y, type, rotationValue = 0, roationDirection = null):
+func other_ready(x, y, type, rotationValue, roationDirection):
 	position.x = x
 	position.y = y
 	turretType = type
-	rotation = rotationValue
+	rotation = deg_to_rad(rotationValue)
+	rDirection = roationDirection
 	if turretType != "rotating":
 		get_node("Timer").wait_time += 0.5
 

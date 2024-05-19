@@ -8,18 +8,18 @@ extends Node2D
 
 #[name, pos_x, pos_y, type of turret, rotation, rotation direction (if type==rotating)]
 var allEnnemies = [
-	["simple_turret", -75, -375, "rotating"],
-	["simple_turret", 75, -375, "normal"],
-	["shotgun_turret", -300, -800, "rotating"],
-	["shotgun_turret", 300, -800, "normal"],
-	["simple_turret", -350, -1500, "rotating"],
-	["simple_turret", -250, -1500, "normal"],
-	["double_turret", -150, -1500, "rotating"],
-	["double_turret", -50, -1500, "normal"],
-	["triple_turret", 50, -1500, "rotating"],
-	["triple_turret", 150, -1500, "normal"],
-	["quadruple_turret", 250, -1500, "rotating"],
-	["quadruple_turret", 350, -1500, "normal"]
+	["simple_turret", -75, -375, "rotating", 0, -1],
+	["simple_turret", 75, -375, "normal", -90, null],
+	["shotgun_turret", -300, -800, "rotating", 0, 1],
+	["shotgun_turret", 300, -800, "normal", 0, null],
+	["simple_turret", -350, -1500, "rotating", 0, 1],
+	["simple_turret", -250, -1500, "normal", 0, null],
+	["double_turret", -150, -1500, "rotating", 0, -1],
+	["double_turret", -50, -1500, "normal", 0, null],
+	["triple_turret", 50, -1500, "rotating", 0, 1],
+	["triple_turret", 150, -1500, "normal", 0, null],
+	["quadruple_turret", 250, -1500, "rotating", 0, -1],
+	["quadruple_turret", 350, -1500, "normal", 0, null]
 	]
 
 func _ready():
@@ -36,5 +36,5 @@ func _ready():
 		elif i[0] == "shotgun_turret":
 			ennemie = ShotgunTurret.instantiate()
 		get_tree().root.add_child(ennemie)
-		ennemie.other_ready(i[1], i[2], i[3])
+		ennemie.other_ready(i[1], i[2], i[3], i[4], i[5])
 
