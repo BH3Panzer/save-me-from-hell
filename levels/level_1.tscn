@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjmlp5l27lr5j"]
+[gd_scene load_steps=13 format=3 uid="uid://cjmlp5l27lr5j"]
 
 [ext_resource type="Texture2D" uid="uid://c0n8hh6j4f415" path="res://art/background_base.png" id="1_m7k27"]
 [ext_resource type="Script" path="res://levels/set_ennemis.gd" id="1_uvavh"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://m8johnn4celt" path="res://ennemi/quadruple_turret.tscn" id="5_7y44f"]
 [ext_resource type="PackedScene" uid="uid://cslu0w4lvk6kw" path="res://ennemi/shotgun_turret.tscn" id="6_h1tqp"]
 [ext_resource type="PackedScene" uid="uid://sx84ioc6g3b5" path="res://ennemi/simple_turret.tscn" id="7_qt5ut"]
+[ext_resource type="AudioStream" uid="uid://dy4bofe4wl1ud" path="res://audio/SMFH - Title.mp3" id="12_25xme"]
 
 [node name="Level1" type="Node2D" groups=["Level"]]
 script = ExtResource("1_uvavh")
@@ -54,3 +55,8 @@ script = ExtResource("3_gbbqw")
 
 [node name="Player" parent="." instance=ExtResource("5_6o6hp")]
 position = Vector2(0, 162)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_25xme")
+volume_db = -6.0
+autoplay = true

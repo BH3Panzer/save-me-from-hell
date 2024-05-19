@@ -85,3 +85,4 @@ func damage(a):
 	life -= a
 	if life <= 0:
 		queue_free()
+		get_tree().change_scene_to_file("res://menus/game_over.tscn")

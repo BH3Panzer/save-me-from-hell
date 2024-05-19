@@ -65,4 +65,9 @@ rotation = 2.1293
 position = Vector2(-5, 7.75)
 rotation = 2.35619
 
+[node name="HitTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]

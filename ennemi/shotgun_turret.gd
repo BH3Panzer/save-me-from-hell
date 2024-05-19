@@ -70,9 +70,11 @@ func shoot():
 	bFR.scale.y = 1
 
 func damage(a):
+	$Sprite2D.modulate = Color(1, 0, 0)
 	life -= a
 	if life <= 0:
 		died()
+	$HitTimer.start()
 
 func died():
 	var loot = randi() % 100
@@ -94,3 +96,7 @@ func died():
 		bonus.scale.x = 1
 		bonus.scale.y = 1
 	queue_free()
+
+
+func _on_hit_timer_timeout():
+	$Sprite2D.modulate = Color(1, 1, 1)

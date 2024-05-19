@@ -44,4 +44,9 @@ rotation = 3.14159
 position = Vector2(1.19209e-07, 0)
 scale = Vector2(0.7, 0.5)
 
+[node name="HitTmer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="HitTmer" to="." method="_on_hit_tmer_timeout"]
