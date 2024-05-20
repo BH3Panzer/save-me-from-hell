@@ -61,7 +61,6 @@ func _on_timer_blaster_timeout():
 	shoot_blaster()
 
 func shoot_blaster():
-	$shootblasteraudio.play()
 	var bla = Blaster.instantiate()
 	var bla2 = Blaster.instantiate()
 	owner.add_child(bla)
@@ -74,7 +73,6 @@ func shoot_blaster():
 	bla2.scale.y = 1
 
 func shoot():
-	$shootbulletaudio.play()
 	var b = Bullet.instantiate()
 	owner.add_child(b)
 	b.transform = $FrontCanon.global_transform
